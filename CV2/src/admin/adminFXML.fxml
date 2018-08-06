@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.AdminController">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="1280.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="29.0" prefHeight="691.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Users">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="351.0" prefHeight="661.0" prefWidth="930.0">
+                           <children>
+                              <TableView fx:id="usertable" onMouseClicked="#rowClicked" prefHeight="661.0" prefWidth="1061.0">
+                                <columns>
+                                    <TableColumn fx:id="idcol" onEditStart="#rowClicked" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="namecol" onEditStart="#rowClicked" prefWidth="83.0" text="Name" />
+                                    <TableColumn fx:id="birthplacecol" onEditStart="#rowClicked" prefWidth="110.0" text="BirthPlace" />
+                                    <TableColumn fx:id="birthtimecol" onEditStart="#rowClicked" prefWidth="147.0" text="BirthTime" />
+                                    <TableColumn fx:id="nationalitycol" onEditStart="#rowClicked" prefWidth="115.0" text="Nationality" />
+                                    <TableColumn fx:id="emailcol" onEditStart="#rowClicked" prefWidth="125.0" text="Email" />
+                                    <TableColumn fx:id="phonenumbercol" onEditStart="#rowClicked" prefWidth="130.0" text="PhoneNumber" />
+                                    <TableColumn fx:id="createdtimecol" onEditStart="#rowClicked" prefWidth="142.0" text="CreatedTime" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="-6.0" prefHeight="664.0" prefWidth="357.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="246.0" text="Add Users" textFill="#e11414">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="140.0" />
+                                 </padding></Label>
+                              <TextField fx:id="id" promptText="ID">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="name" layoutX="10.0" layoutY="42.0" promptText="Name">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="birthplace" layoutX="10.0" layoutY="69.0" promptText="BirthPlace">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <DatePicker fx:id="birthtime" promptText="BirthTime">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets right="140.0" />
+                                 </padding>
+                              </DatePicker>
+                              <TextField fx:id="nationality" layoutX="10.0" layoutY="123.0" promptText="Nationality">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="email" layoutX="10.0" layoutY="150.0" promptText="Email">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="phonenumber" layoutX="10.0" layoutY="177.0" promptText="PhoneNumber">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="createdtime" promptText="Created Time">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="addButton" mnemonicParsing="false" onAction="#deleteUser" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Delete" textFill="#e11414">
+                                       <font>
+                                          <Font name="Arial Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" top="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#addUser" prefHeight="37.0" prefWidth="134.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Add Entry" textFill="#e11414">
+                                       <font>
+                                          <Font name="Arial Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" top="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#clearFields" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Clear Form" textFill="#e11414">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#loadUserData" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Load Data" textFill="#e11414">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#studiesClick" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Studies" textFill="#e11414">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#worksClick" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Works" textFill="#e11414">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#save" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #20120F; -fx-border-color: #e11414;" text="Edit" textFill="#e11414">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="110.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <ImageView fitHeight="196.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets top="100.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@/images/tg.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
